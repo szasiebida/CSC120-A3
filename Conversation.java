@@ -18,6 +18,17 @@ class Conversation {
   public String getResponse(){
     return this.input.nextLine();
   }
+
+  public String mirror(String sentence){
+    String[] words = sentence.split(" ");
+    int length=words.length;
+    for (int i=0; i < length;){
+      if (words[i].equals("you")){
+        words[i]="I";
+      }
+    }
+    return String.join(", ", words);
+  }
   public static void main(String[] arguments) {
     Conversation myConversation = new Conversation();  
     int rounds= myConversation.howManyRounds();
@@ -25,11 +36,10 @@ class Conversation {
     System.out.println("Hi there!  What's on your mind?");
     myConversation.getResponse();
     for (int i=0; i<rounds; i++){
-      myConversation.getResponse();
-      System.out.println("mhmm meow");
-      // String sentence = myConversation.input.nextLine();
-      // String[] words = sentence.split(" ");
-      // if ("I" in words)
+      String sentence=myConversation.getResponse();
+      String newSentence=myConversation.mirror(sentence);
+      System.out.println(newSentence);
+      // System.out.println("mhmm meow");
     }
 
   }
