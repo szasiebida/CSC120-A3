@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.List;
 class Conversation {
   
   //atributes of conversation class
@@ -27,40 +28,55 @@ class Conversation {
   public String mirror(String sentence){
     String[] words = sentence.split(" ");
     int length=words.length;
-    System.out.println(words[0]);
-    for (int i=0; i < length-1; i++){
-      System.out.println(i);
+    int counter=0;
+    for (int i=0; i < length; i++){
 
       if (words[i].equals("you")){
-        System.out.println("woof");
-        words[i]="I";
+        words[i]="i";
+        counter ++;
       }
-      // else if (words[i].equals("I")){
-      //   words[i]="you";
-      //   break;
-      // }
-      // else if (words[i].equals("me")){
-      //   words[i]="you";
-      //   break;
-      // }
-      // else if (words[i].equals("am")){
-      //   words[i]="are";
-      //   break;
-      // }
-      // else if (words[i].equals("my")){
-      //   words[i]="your";
-      //   break;
-      // }
-      // else if (words[i].equals("your")){
-      //   words[i]="my";
-      //   break;
-      // }
+      else if (words[i].equals("i")){
+        words[i]="you";
+        counter ++;
+
+      }
+      else if (words[i].equals("me")){
+        words[i]="you";
+        counter ++;
+
+      }
+      else if (words[i].equals("am")){
+        words[i]="are";
+        counter ++;
+
+      }
+      else if (words[i].equals("my")){
+        words[i]="your";
+        counter ++;
+
+      }
+      else if (words[i].equals("your")){
+        words[i]="my";
+        counter ++;
+
+      }
     }
-    return String.join(", ", words);
+    String newWords=String.join(" ", words)+"?";
+    if (counter<1){
+      newWords="Wow thats cool";
+      System.out.println("o");
+    }
+    return newWords;
   }
   public static void main(String[] arguments) {
     Conversation myConversation = new Conversation();  
     int rounds= myConversation.howManyRounds();
+
+    //help
+    List<String> transcripts = new ArrayList<>();
+    transcripts.add("How many rounds would you like to play?");
+    transcripts.add(String rounds);
+
 
     System.out.println("Hi there!  What's on your mind?");
     myConversation.getResponse();
@@ -70,6 +86,8 @@ class Conversation {
       System.out.println(newSentence);
       // System.out.println("mhmm meow");
     }
+    System.out.println("Thanks for talking");
+
 
   }
 
