@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 class Conversation {
   
   //atributes of conversation class
@@ -7,10 +6,18 @@ class Conversation {
   Scanner input;
 
   //constructer 
+  /**
+   * constructor that sets up the scanner
+   */
   public Conversation(){
     this.input = new Scanner(System.in);
   }
 
+  /**
+   * asks the user how many rounds they want to play and returns the value to be used later
+   * 
+   * @return rounds the int of the number of rounds they want to play
+   */
   //ask for how many rounds to play and retrun that value to be used later 
   public int howManyRounds(){
     System.out.println("How many rounds would you like to play?");
@@ -18,11 +25,22 @@ class Conversation {
     return rounds;
   }
 
+  /**
+   * gets the next user input from the scanner 
+   * 
+   * @return the next line of the user input 
+   */
   //how to use the scanner to get another instance of user input 
   public String getResponse(){
     return this.input.nextLine();
   }
 
+  /**
+   * mirror function where the program mirrors specifc words and figures out how to respond 
+   * 
+   * @param sentence the input of the user as one long string
+   * @return the response the program will print to the terminal after mirroring words or not
+   */
   //mirrors the input to different values 
   public String mirror(String sentence){
     String[] words = sentence.split(" ");
@@ -66,32 +84,47 @@ class Conversation {
     }
     return newWords;
   }
+
+  /**
+   * main function where the conversation takes place prints the transcript as the conversation terminates 
+   * 
+   * @param arguments
+   */
   public static void main(String[] arguments) {
     Conversation myConversation = new Conversation();  
     int rounds= myConversation.howManyRounds();
 
-    //help
-    ArrayList<String> transcript = new ArrayList<String>();    // List<String> transcripts = new ArrayList<>();
-    // transcripts.add("How many rounds would you like to play?");
-    // transcripts.add(String rounds);
+    String[] transcript = new String[rounds*2+2]; 
+
 
     System.out.println("Hi there!  What's on your mind?");
-    transcript.add("Hi there!  What's on your mind?");
+    transcript[0]=("Hi there!  What's on your mind?");
     myConversation.getResponse();
-    for (int i=0; i<rounds; i++){
+    if (rounds==1){
       String sentence=myConversation.getResponse();
-      transcript.add(sentence);
+      transcript[1]=(sentence);
       String newSentence=myConversation.mirror(sentence);
-      transcript.add(newSentence);
+      transcript[2]=(newSentence);
       System.out.println(newSentence);
-      // System.out.println("mhmm meow");
     }
+    else {
+      for (int i=0; i<rounds+2;){
+      String sentence=myConversation.getResponse();
+      transcript[i+1]=(sentence);
+      String newSentence=myConversation.mirror(sentence);
+      transcript[i+2]=(newSentence);
+      System.out.println(newSentence);
+      i=i+2;
+    }
+    }
+      
     System.out.println("Thanks for talking");
-    transcript.add("Thanks for talking");
+    transcript[rounds*2+2-1]=("Thanks for talking");
+
 
     int lengthy= (rounds*2+2);
     for (int k=0; k< lengthy; k++){
-      System.out.println(transcript.get(k));
+      System.out.println(transcript[k]);
     }
 
   }

@@ -12,7 +12,7 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ### Level 1 (4 pts)
 
-_____ 1 pt: `reflection.md` lists the classmates you consulted & TA hours attended
+___YES__ 1 pt: `reflection.md` lists the classmates you consulted & TA hours attended
 
 ___YES__ 1 pt: Program queries user for number of conversation rounds
 
@@ -32,9 +32,9 @@ ___YES__ 1 pt: Replaces simple mirror words appropriately (unpunctuated, lowerca
 
 ___YES__ 1 pt: Makes all appropriate mirror replacements
 
-_____ 1 pt: Stores transcript of the conversation in an array
+___YES__ 1 pt: Stores transcript of the conversation in an array
 
-_____ 1 pt: Prints transcript when terminating
+___YES__ 1 pt: Prints transcript when terminating
 
 ## Kudos:
 
@@ -48,22 +48,22 @@ _____ (Kudos!) Handles you --> me/I dilemma
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+___YES__ 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+___YES__ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+___YES__ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      ___YES__ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      __YES___ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      ___YES__ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      ___YES__ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      ___YES__ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed checklist file)
+___YES__ 1 pt: All required files included with submission (including completed checklist file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+___YES__ 1 pt: `reflection.md` contains your reflection on the assignment
