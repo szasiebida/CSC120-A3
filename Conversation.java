@@ -1,4 +1,9 @@
 import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Conversation {
   
   //atributes of conversation class
@@ -47,41 +52,34 @@ class Conversation {
     int length=words.length;
     int counter=0;
     for (int i=0; i < length; i++){
-
       if (words[i].equals("you")){
         words[i]="i";
         counter ++;
-      }
-      else if (words[i].equals("i")){
-        words[i]="you";
-        counter ++;
-
-      }
-      else if (words[i].equals("me")){
-        words[i]="you";
-        counter ++;
-
-      }
-      else if (words[i].equals("am")){
-        words[i]="are";
-        counter ++;
-
-      }
-      else if (words[i].equals("my")){
-        words[i]="your";
-        counter ++;
-
-      }
-      else if (words[i].equals("your")){
-        words[i]="my";
-        counter ++;
-
+      } else if (words[i].equals("i")){
+          words[i]="you";
+          counter ++;
+      } else if (words[i].equals("me")){
+          words[i]="you";
+          counter ++;
+      } else if (words[i].equals("am")){
+          words[i]="are";
+          counter ++;
+      } else if (words[i].equals("my")){
+          words[i]="your";
+          counter ++;
+      } else if (words[i].equals("your")){
+          words[i]="my";
+          counter ++;
       }
     }
     String newWords=String.join(" ", words)+"?";
     if (counter<1){
-      newWords="mhmm very interesting";
-    }
+      String [] responses = {"mhmm very interesting", "that's really cool", "tell me more!","wowza"};
+      List <String> cannedResponses = Arrays.asList(responses);
+      Random rand = new Random();
+      int number= rand.nextInt(3);
+      newWords=cannedResponses.get(number);
+    } 
     return newWords;
   }
 
@@ -106,16 +104,15 @@ class Conversation {
       String newSentence=myConversation.mirror(sentence);
       transcript[2]=(newSentence);
       System.out.println(newSentence);
-    }
-    else {
-      for (int i=0; i<rounds+2;){
-      String sentence=myConversation.getResponse();
-      transcript[i+1]=(sentence);
-      String newSentence=myConversation.mirror(sentence);
-      transcript[i+2]=(newSentence);
-      System.out.println(newSentence);
-      i=i+2;
-    }
+    } else {
+        for (int i=0; i<rounds+2;){
+          String sentence=myConversation.getResponse();
+          transcript[i+1]=(sentence);
+          String newSentence=myConversation.mirror(sentence);
+          transcript[i+2]=(newSentence);
+          System.out.println(newSentence);
+          i=i+2;
+      }
     }
       
     System.out.println("Thanks for talking");
