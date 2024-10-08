@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.Random;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -91,39 +90,26 @@ class Conversation {
   public static void main(String[] arguments) {
     Conversation myConversation = new Conversation();  
     int rounds= myConversation.howManyRounds();
-
     String[] transcript = new String[rounds*2+2]; 
-
-
     System.out.println("Hi there!  What's on your mind?");
     transcript[0]=("Hi there!  What's on your mind?");
     myConversation.getResponse();
-    if (rounds==1){
+    int transcriptint = 1;
+    for (int i=0; i<rounds;){
       String sentence=myConversation.getResponse();
-      transcript[1]=(sentence);
+      transcript[transcriptint]=(sentence);
+      transcriptint=transcriptint+1;
       String newSentence=myConversation.mirror(sentence);
-      transcript[2]=(newSentence);
+      transcript[transcriptint]=(newSentence);
+      transcriptint=transcriptint+1;
       System.out.println(newSentence);
-    } else {
-        for (int i=0; i<rounds+2;){
-          String sentence=myConversation.getResponse();
-          transcript[i+1]=(sentence);
-          String newSentence=myConversation.mirror(sentence);
-          transcript[i+2]=(newSentence);
-          System.out.println(newSentence);
-          i=i+2;
-      }
-    }
-      
+      i=i+1;
+    } 
     System.out.println("Thanks for talking");
     transcript[rounds*2+2-1]=("Thanks for talking");
-
-
     int lengthy= (rounds*2+2);
     for (int k=0; k< lengthy; k++){
       System.out.println(transcript[k]);
     }
-
   }
-
 }
